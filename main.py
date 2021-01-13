@@ -10,6 +10,11 @@ import connect
 time.sleep(4)
 
 name = input("Enter your name: ")
+age = int(input("Enter your age: "))
+
+if age < 18:
+    print('Due to your age, you are not allowed to talk here.')
+    exit()
 
 
 if os.path.exists("groupChat.md"):
