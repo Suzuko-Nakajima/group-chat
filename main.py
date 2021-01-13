@@ -7,11 +7,24 @@ import json
 import datetime
 import connect
 
+def shutdown():
+    print('The program has shutdown.')
+    exit()
+
+prefix = './'
+
+def chooseName():
+    global name
+    name = input("Enter your name: ")
+
+def helpList():
+    print("All commands begin with a './' prefix.\n\n1. clear\n2. updatename\n3. shutdown")
+
+
 time.sleep(4)
 
 options = ["Female", "Male", "female", "male"]
-
-name = input("Enter your name: ")
+chooseName()
 age = int(input("Enter your age: "))
 
 gender = input("Gender (Female | Male): ")
@@ -32,17 +45,28 @@ else:
     f.close()
 
 while True:
-  message = input("Enter a message: ")
+    message = input("Enter a message: ")
 
-  def clearContents():
-    with open("groupChat.md", "w+") as f:
-      f.write("## Markdown File - Group Chat\n- You can use this file to receive your output messages.\n\n")
-      f.close()
+    def clearContents():
+        with open("groupChat.md", "w+") as f:
+            f.write("## Markdown File - Group Chat\n- You can use this file to receive your output messages.\n\n")
+            f.close()
 
   
-  with open("groupChat.md", "a") as f:
-    f.write(f'`{name}` ({gender}): ' + message + '\n')
-    f.close()
+    with open("groupChat.md", "a") as f:
+        if prefix not in message:
+            f.write(f'`{name}` ({gender}): ' + message + '\n')
+            f.close()
 
-  if message == 'clear':
-    clearContents()
+        if message == prefix + 'help':
+            helpList()
+
+        if message == prefix + 'clear':
+            clearContents()
+
+        if message == prefix + 'updatename':
+            chooseName()
+
+
+        if message == prefix + 'shutdown':
+            shutdown()
