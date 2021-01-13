@@ -9,10 +9,17 @@ import connect
 
 time.sleep(4)
 
+options = ["Female", "Male", "female", "male"]
+
 name = input("Enter your name: ")
 age = int(input("Enter your age: "))
 
-if age < 18:
+gender = input("Gender (Female | Male): ")
+if gender not in options:
+    print(f'Error: \"{gender}\" is not a valid gender.')
+    exit()
+
+if age < 13:
     print('Due to your age, you are not allowed to talk here.')
     exit()
 
@@ -34,7 +41,7 @@ while True:
 
   
   with open("groupChat.md", "a") as f:
-    f.write(f'`{name}`: ' + message + '\n')
+    f.write(f'`{name}` ({gender}): ' + message + '\n')
     f.close()
 
   if message == 'clear':
