@@ -15,4 +15,4 @@ class Connect:
   print('-!- ==================== -!-\n\n')
 
 def setup(main):
-  main.add_cog(Connect(main()))
+  main.add_cog(Connect(main))
