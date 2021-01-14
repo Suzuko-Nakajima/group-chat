@@ -17,8 +17,12 @@ def chooseName():
     global name
     name = input("Enter your name: ")
 
+def chooseGender():
+    global gender
+    gender = input("Gender (Female | Male): ")
+
 def helpList():
-    print("All commands begin with a './' prefix.\n\n1. clear\n2. updatename\n3. shutdown")
+    print("All commands begin with a './' prefix.\n\n1. clear\n2. gender\n3. shutdown\n4. updatename\n")
 
 
 time.sleep(4)
@@ -27,7 +31,7 @@ options = ["Female", "Male", "female", "male"]
 chooseName()
 age = int(input("Enter your age: "))
 
-gender = input("Gender (Female | Male): ")
+chooseGender()
 if gender not in options:
     print(f'Error: \"{gender}\" is not a valid gender.')
     exit()
@@ -67,6 +71,8 @@ while True:
         if message == prefix + 'updatename':
             chooseName()
 
+        if message == prefix + 'gender':
+            chooseGender()
 
         if message == prefix + 'shutdown':
             shutdown()
