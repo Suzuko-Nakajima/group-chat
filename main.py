@@ -22,7 +22,7 @@ def chooseGender():
     gender = input("Gender (Female | Male): ")
 
 def helpList():
-    print("All commands begin with a './' prefix.\n\n1. clear\n2. gender\n3. shutdown\n4. updatename\n")
+    print("\nAll commands begin with a './' prefix.\n\n1. clear\n2. gender\n3. shutdown\n4. updatename\n")
 
 
 time.sleep(4)
