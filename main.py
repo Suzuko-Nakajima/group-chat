@@ -22,7 +22,19 @@ def chooseGender():
     gender = input("Gender (Female | Male): ")
 
 def helpList():
-    print("\nAll commands begin with a './' prefix.\n\n1. clear\n2. gender\n3. shutdown\n4. updatename\n")
+    print("\nAll commands begin with a './' prefix.\n\n1. clear\n2. gender\n3. shutdown\n4. updatename\n5. urm\n")
+
+def updateREADME():
+  if os.path.exists("README.md"):
+    global rmMessage
+    rmMessage = input("Update README: ")
+
+    with open("README.md", "a") as f:
+      f.write(rmMessage + '\n\n')
+  else:
+    with open("README.md", "x") as f:
+      f.close()
+      print('The README file has been created.\nExecute this command again to use the file.')
 
 
 time.sleep(4)
@@ -73,6 +85,9 @@ while True:
 
         if message == prefix + 'gender':
             chooseGender()
+
+        if message == prefix + 'urm':
+          updateREADME()
 
         if message == prefix + 'shutdown':
             shutdown()
