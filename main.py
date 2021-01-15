@@ -7,9 +7,17 @@ import json
 import datetime
 import connect
 
+confirmationChoices = ["Yes", "No", "yes", "no"]
+
 def shutdown():
-    print('The program has shutdown.')
-    exit()
+    global confirmation
+    confirmation = input("Are you sure you want to shutdown the program?\n")
+    if confirmation not in confirmationChoices:
+        print('Error: That isn\'t a valid option.')
+    elif confirmation == 'Yes' or confirmation == 'yes':
+        exit()
+    elif confirmation == 'No' or confirmation == 'no':
+        print('The program is still running.\nReason: Shutdown declined.')
 
 prefix = './'
 
