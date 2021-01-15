@@ -14,7 +14,7 @@ class Connect:
   print('- + - Program initialized - + -')
   print('-!- ==================== -!-\n\n')
 
-  print('The program is ready, type \'./help\' for a list of available commands.\n')
+  print('The program is ready, type \'./help\' for a list of available commands after the setup.\n')
 
 def setup(main):
   main.add_cog(Connect(main))
